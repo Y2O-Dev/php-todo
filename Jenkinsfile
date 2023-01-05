@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+  agent any
 
   stages {
 
-     stage("Initial cleanup") {
+    stage("Initial cleanup") {
           steps {
             dir("${WORKSPACE}") {
               deleteDir()
