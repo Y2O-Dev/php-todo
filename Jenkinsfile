@@ -17,12 +17,6 @@ pipeline {
       }
     }
 
-     stage('Execute Unit Tests') {
-      steps {
-             sh './vendor/bin/phpunit'
-      } 
-    }
-
     stage('Prepare Dependencies') {
       steps {
              sh 'mv .env.sample .env'
@@ -31,6 +25,11 @@ pipeline {
              sh 'php artisan db:seed'
              sh 'php artisan key:generate'
       }
+    }
+    stage('Execute Unit Tests') {
+      steps {
+             sh './vendor/bin/phpunit'
+      } 
     }
   }
 }
