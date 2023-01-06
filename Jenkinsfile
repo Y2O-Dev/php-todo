@@ -17,6 +17,12 @@ pipeline {
       }
     }
 
+     stage('Execute Unit Tests') {
+      steps {
+             sh './vendor/bin/phpunit'
+      } 
+    }
+
     stage('Prepare Dependencies') {
       steps {
              sh 'mv .env.sample .env'
